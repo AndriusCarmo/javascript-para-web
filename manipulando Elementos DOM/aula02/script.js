@@ -5,6 +5,19 @@ const longoBt = document.querySelector('.app__card-button--longo')
 const banner = document.querySelector('.app__image')
 const titulo = document.querySelector('.app__title')
 const botoes = document.querySelectorAll('.app__card-button')
+const musicaFocoInput = document.querySelector('#alternar-musica')
+const musica = new Audio('/sons/luna-rise-part-one.mp3')
+musica.loop= true    /* Faz a musica ficar tocando em loop, pois os temporisadores são mais longos*/ 
+const somPausa = new Audio('/sons/pause.mp3')
+
+musicaFocoInput.addEventListener('change', ()=>{
+    if(musica.paused){
+        musica.play()
+    }else{
+        musica.pause()
+        somPausa.play()
+    }    
+})
 
 focoBt.addEventListener('click', () => {
     alterarContexto('foco')
